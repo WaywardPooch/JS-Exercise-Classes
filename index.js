@@ -170,7 +170,33 @@ console.log("[4]", mustang.drive(100));
         + {name} and {location} of course come from the instance's own properties.
 */
 
-class Lambdasian {}
+// Log a separator
+console.log("===============[TASK 3]===============");
+
+// Create a 'Lambdasian' class
+class Lambdasian {
+  // Create a object constructor, taking in attributes as an object
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+  // Add methods to the Lambdasian's prototype
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
+}
+
+// Create a Lambdasian named Bilbo, and log the new object
+const bilbo = new Lambdasian({
+  name: "Bilbo",
+  age: 111,
+  location: "The Shire",
+});
+console.log("[1]", bilbo);
+
+// Test if the Lambdasian may introduce himself
+console.log("[2]", bilbo.speak());
 
 /*
   TASK 4
@@ -186,6 +212,7 @@ class Lambdasian {}
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
+
 class Instructor {}
 /*
   TASK 5
