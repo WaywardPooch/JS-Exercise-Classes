@@ -189,7 +189,7 @@ class Lambdasian {
 
 // Create a Lambdasian named Bilbo, and log the new object
 const bilbo = new Lambdasian({
-  name: "Bilbo",
+  name: "Bilbo Baggins",
   age: 111,
   location: "The Shire",
 });
@@ -213,7 +213,49 @@ console.log("[2]", bilbo.speak());
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 
-class Instructor {}
+// Log a separator
+console.log("===============[TASK 4]===============");
+
+// Create a child class of Lambdasian
+class Instructor extends Lambdasian {
+  // Create an object constructor
+  constructor(attributes) {
+    // Inherit the parent's traits
+    super(attributes);
+    // Add unique traits
+    this.specialty = attributes.specialty;
+    this.favLanguage = attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase;
+  }
+  // Add unique methods to the child's prototype
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+}
+
+// Create an instructor named Gandalf
+const gandalf = new Instructor({
+  name: "Gandalf",
+  age: 24000,
+  location: "The Gardens of Lórien",
+  specialty: "Wizardry",
+  favLanguage: "Sindarin",
+  catchPhrase:
+    "It is the small, everyday deeds of ordinary folks that keeps the darkness at bay.",
+});
+
+// Log Gandalf to the console
+console.log("[1]", gandalf);
+
+// Test if Gandalf can perform Lambdasian methods
+console.log("[2]", gandalf.speak());
+
+// Test if Gandalf can perform Instructor methods
+console.log("[3]", gandalf.grade(bilbo, "Ring-Bearing"));
+
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
