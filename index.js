@@ -334,7 +334,37 @@ console.log(frodo.listSubjects());
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {}
+
+// Log a separator
+console.log("===============[TASK 6]===============");
+
+class ProjectManager extends Instructor {
+  constructor(attributes) {
+    super(attributes);
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+  }
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @${channel} standy times!`;
+  }
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
+}
+
+const elrond = new ProjectManager({
+  name: "Elrond",
+  age: 6617,
+  location: "Rivendell",
+  gradClassName: "The Fellowship",
+  favInstructor: "Gandalf",
+});
+
+console.log(elrond);
+console.log(elrond.speak());
+console.log(elrond.demo("how to beat Sauron, forever"));
+console.log(elrond.debugsCode(frodo, "destroying the One Ring"));
+
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
