@@ -1,4 +1,3 @@
-
 /*
   EXAMPLE TASK:
     - Write an Airplane class whose constructor initializes `name` from an argument.
@@ -41,9 +40,51 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
+// Create a 'Person' class
 class Person {
-  
+  // Create the constructor function, taking in name and age
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  // Add methods to the Person prototype
+  eat(food) {
+    // If there are less than 10 foods in stomach...
+    if (this.stomach.length < 10) {
+      // ...allow the person to eat, adding food to stomach
+      this.stomach.push(food);
+      return `${this.name} ate a ${food}.`;
+    } else {
+      // ...otherwise, prevent eating, returning a message, instead.
+      return `${this.name} is full; they cannot eat the ${food}.`;
+    }
+  }
+  poop() {
+    // Reset the stomach array after pooping
+    this.stomach = [];
+    return `Woah... ⊙﹏⊙ | Contents of stomach now => ${this.stomach}`;
+  }
+  toString() {
+    // Print out the name and age using template literals
+    return `${this.name}, ${this.age}`;
+  }
 }
+
+// Create a person object named julie
+const julie = new Person("Julie", 25);
+
+// Test if the toString() method works
+console.log("Task 1:", julie.toString());
+
+// Test if the eat() method works
+console.log("Task 1:", julie.eat("sandwich"));
+console.log("Task 1:", julie.eat("apple"));
+console.log("Task 1:", julie.eat("cookie"));
+console.log("Task 1: Food in stomach =>", julie.stomach);
+
+// Test if the poop() method works
+console.log("Task 1:", julie.poop());
 
 /*
   TASK 2
@@ -59,9 +100,7 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {
-  
-}
+class Car {}
 
 /*
   TASK 3
@@ -75,9 +114,7 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
-class Lambdasian {
-  
-}
+class Lambdasian {}
 
 /*
   TASK 4
@@ -93,9 +130,7 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
-}
+class Instructor {}
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -111,9 +146,7 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-   
-}
+class Student {}
 
 /*
   TASK 6
@@ -128,9 +161,7 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-   
-}
+class ProjectManager {}
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
@@ -140,11 +171,10 @@ class ProjectManager {
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
 
-
 //End of Challenge
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-function foo(){
-  return 'bar';
+function foo() {
+  return "bar";
 }
 
 module.exports = {
@@ -154,5 +184,5 @@ module.exports = {
   Lambdasian,
   Instructor,
   Student,
-  ProjectManager
-}
+  ProjectManager,
+};
