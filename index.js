@@ -356,6 +356,10 @@ const elrond = new ProjectManager({
   name: "Elrond",
   age: 6617,
   location: "Rivendell",
+  specialty: "Leading the Council",
+  favLanguage: "Elvish",
+  catchPhrase:
+    "Such is of the course of deeds that move the wheels of the world: small hands do them because they must, while the eyes of the great are elsewhere.",
   gradClassName: "The Fellowship",
   favInstructor: "Gandalf",
 });
