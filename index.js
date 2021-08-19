@@ -40,6 +40,9 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
+// Log a separator
+console.log("===============[TASK 1]===============");
+
 // Create a 'Person' class
 class Person {
   // Create the constructor function, taking in name and age
@@ -54,7 +57,7 @@ class Person {
     if (this.stomach.length < 10) {
       // ...allow the person to eat, adding food to stomach
       this.stomach.push(food);
-      return `${this.name} ate a ${food}.`;
+      return `${this.name} ate a(n) ${food}.`;
     } else {
       // ...otherwise, prevent eating, returning a message, instead.
       return `${this.name} is full; they cannot eat the ${food}.`;
@@ -75,16 +78,16 @@ class Person {
 const julie = new Person("Julie", 25);
 
 // Test if the toString() method works
-console.log("Task 1:", julie.toString());
+console.log("[1]", julie.toString());
 
 // Test if the eat() method works
-console.log("Task 1:", julie.eat("sandwich"));
-console.log("Task 1:", julie.eat("apple"));
-console.log("Task 1:", julie.eat("cookie"));
-console.log("Task 1: Food in stomach =>", julie.stomach);
+console.log("[2]", julie.eat("sandwich"));
+console.log("[3]", julie.eat("apple"));
+console.log("[4]", julie.eat("cookie"));
+console.log("[5] Food in stomach =>", julie.stomach);
 
 // Test if the poop() method works
-console.log("Task 1:", julie.poop());
+console.log("[6]", julie.poop());
 
 /*
   TASK 2
@@ -100,7 +103,59 @@ console.log("Task 1:", julie.poop());
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {}
+// Log a separator
+console.log("===============[TASK 2]===============");
+
+// Create a 'Car' class
+class Car {
+  // Create the object constructor function, taking in model and MPG
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  // Add methods to the Car prototype
+  fill(gallons) {
+    // Add 'gallons' to the tank
+    this.tank += gallons;
+    // Return a success message
+    return `${gallons} gallons were added to the ${this.model}'s tank!`;
+  }
+  drive(distance) {
+    // Calculate and store the maximum possible travel distance
+    const maxTravelDistance = this.tank * this.milesPerGallon;
+    // If the desired travel distance can be reached...
+    if (distance < maxTravelDistance) {
+      // ...add miles to the odometer...
+      this.odometer += distance;
+      // ...remove gallons of fuel used from the tank...
+      this.tank -= distance / this.milesPerGallon;
+      // ...and return the distance traveled and fuel remaining.
+      return `I traveled ${distance} miles! Fuel left: ${this.tank} gallon(s).`;
+    } else {
+      // ...otherwise, go as far as you can...
+      this.odometer += maxTravelDistance;
+      // ...set the tank to empty...
+      this.tank = 0;
+      // ...and return a failure to reach destination message.
+      return `I ran out of fuel at ${maxTravelDistance} miles!`;
+    }
+  }
+}
+
+// Create a new car object, and print it to the console
+const mustang = new Car("Mustang", 25);
+console.log("[1] Instance of Car =>", mustang);
+
+// Test if the tank can be filled
+console.log("[2]", mustang.fill(4));
+
+// Test if the car can drive a traversable distance
+console.log("[3]", mustang.drive(75));
+
+// Test if the car cannot drive past the amount allowed by its tank
+console.log("[4]", mustang.drive(100));
 
 /*
   TASK 3
@@ -114,6 +169,7 @@ class Car {}
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
+
 class Lambdasian {}
 
 /*
