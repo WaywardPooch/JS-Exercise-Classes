@@ -216,7 +216,7 @@ console.log("[2]", bilbo.speak());
 // Log a separator
 console.log("===============[TASK 4]===============");
 
-// Create a child class of Lambdasian
+// Create a child class of Lambdasian named 'instructor'
 class Instructor extends Lambdasian {
   // Create an object constructor
   constructor(attributes) {
@@ -227,7 +227,7 @@ class Instructor extends Lambdasian {
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase;
   }
-  // Add unique methods to the child's prototype
+  // Add unique methods to the instructor's prototype
   demo(subject) {
     return `Today we are learning about ${subject}`;
   }
@@ -244,7 +244,7 @@ const gandalf = new Instructor({
   specialty: "Wizardry",
   favLanguage: "Sindarin",
   catchPhrase:
-    "It is the small, everyday deeds of ordinary folks that keeps the darkness at bay.",
+    "It is the small, everyday deeds of ordinary folk that keeps the darkness at bay.",
 });
 
 // Log Gandalf to the console
@@ -271,7 +271,55 @@ console.log("[3]", gandalf.grade(bilbo, "Ring-Bearing"));
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {}
+
+// Log a separator
+console.log("===============[TASK 5]===============");
+
+// Create a child class of Lambdasian named 'student'
+class Student extends Lambdasian {
+  // Create an object constructor
+  constructor(attributes) {
+    // Inherit the parent's traits
+    super(attributes);
+    // Add unique traits
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
+  }
+  // Add unique methods to the student's prototype
+  listSubjects() {
+    return `Loving ${this.favSubjects}!`;
+  }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+}
+
+// Create a student named Frodo
+const frodo = new Student({
+  name: "Frodo Baggins",
+  age: 33,
+  location: "Bag End",
+  previousBackground: "Gardener",
+  className: "Adventuring 101",
+  favSubjects: [
+    "traveling across Middle Earth",
+    "avoiding the Nazgûl",
+    "pittying Sméagol",
+  ],
+});
+
+// Log Frodo to the console
+console.log(frodo);
+
+// Test if Frodo can perform Lambdasian methods
+console.log(frodo.speak());
+
+// Check if Frodo can perform Student methods
+console.log(frodo.listSubjects());
 
 /*
   TASK 6
